@@ -1,0 +1,17 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block headerTitle %}İletişim {% endblock headerTitle %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+   <!-- <p>
+        <label for="checkbox">I confirm...</label>
+        <input type="checkbox" name="has_consented" id="checkbox">
+    </p>-->
+    <button type="submit" class="btn btn-success">
+        Kaydet
+    </button>
+</form>
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "web/base.html" %}
+{% load static %}
+{% block headerTitle %}EasyBlog {% endblock headerTitle %}
+
+{% block content %}
+<h1>Index Template'inden yazıldı</h1>
+
+{% for blogs in blog %}
+<div class="row">
+    <div class="col-md-10 offset-md-3">
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <a href="#"><h2 class="mt-4">{{blogs.title}}</h2></a> 
+        
+      <!-- Author -->
+      <p class="lead">
+        
+        {{blogs.author.username}} tarafından yayınlandı
+      </p>
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p>{{blogs.created_date}}</p>
+      <hr>
+      <!-- Preview Image -->
+       <!-- Preview Image -->
+      {% if blogs.thumbnail %}
+      <a href="{% url 'MyBlog_blog:blog_detail' id=blogs.id %}"><img class="img-fluid rounded" src="{{blogs.thumbnail.url}}" alt=""></a>
+      {% endif %}
+    
+      <hr>
+      <a style ="float : right;" href="#" class ="btn btn-danger">Devamını Oku</a>
+      <hr>
+         
+        </div>
+      </div>
+      </div>
+
+{% endfor %}
+{% endblock content %}
